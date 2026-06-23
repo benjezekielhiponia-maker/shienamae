@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>yena.yema</title>
+<title>Shiena Mae</title>
 
 <style>
 *{
@@ -19,43 +19,48 @@ body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    background:linear-gradient(135deg,#ff758f,#ffb3c6,#ffd6e0);
     overflow:hidden;
 }
 
-/* Floating Hearts */
+/* TITLE */
+h1{
+    color:white;
+    font-size:32px;
+    margin-bottom:20px;
+    text-shadow:0 5px 15px rgba(0,0,0,.2);
+    z-index:2;
+}
+
+/* HEARTS */
 .hearts span{
     position:absolute;
-    color:#ff4d6d;
-    font-size:20px;
+    color:#ff2e63;
+    font-size:22px;
     animation:float 8s linear infinite;
     bottom:-50px;
 }
 
 @keyframes float{
-    0%{transform:translateY(0) rotate(0deg);opacity:1;}
-    100%{transform:translateY(-110vh) rotate(360deg);opacity:0;}
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-110vh);opacity:0;}
 }
 
-h1{
-    color:white;
-    margin-bottom:20px;
-    text-shadow:2px 2px 10px rgba(0,0,0,.2);
-}
-
-/* Envelope */
+/* ENVELOPE CONTAINER */
 .envelope-container{
     cursor:pointer;
     position:relative;
+    z-index:2;
 }
 
-/* ENVELOPE BASE */
+/* 💌 HUGE ENVELOPE */
 .envelope{
-    width:440px;
-    height:230px;
-    background:#ff758f;
+    width:520px;
+    height:320px;
+    background:#ff4d6d;
     position:relative;
-    border-radius:0 0 10px 10px;
+    border-radius:0 0 14px 14px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
 }
 
 /* FLAP */
@@ -66,74 +71,91 @@ h1{
     left:0;
     width:0;
     height:0;
-    border-left:170px solid transparent;
-    border-right:170px solid transparent;
-    border-top:110px solid #ff4d6d;
+    border-left:260px solid transparent;
+    border-right:260px solid transparent;
+    border-top:160px solid #ff2e63;
     transform-origin:top;
-    transition:.8s;
+    transition:.9s;
     z-index:3;
 }
 
+/* OPEN EFFECT */
 .open .envelope:before{
     transform:rotateX(180deg);
 }
 
-/* 💌 BIGGER LETTER */
+/* 💌 MASSIVE LETTER */
 .letter{
     position:absolute;
-    top:20px;
+    top:30px;
     left:50%;
     transform:translateX(-50%);
-    width:450px;        /* ⬅️ MUCH WIDER */
+    width:480px;   /* VERY WIDE */
     height:0;
     background:white;
-    border-radius:12px;
+    border-radius:14px;
     overflow:hidden;
     transition:1s;
-    padding:0 34px;
+    padding:0 40px;
     z-index:2;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
-/* OPEN LETTER SIZE */
+/* OPEN LETTER */
 .open .letter{
-    height:520px;        /* BIGGER HEIGHT */
-    padding:25px;
+    height:520px;
+    padding:40px;
 }
 
 .letter h2{
-    color:#ff4d6d;
-    margin-bottom:12px;
+    color:#ff2e63;
+    margin-bottom:15px;
+    font-size:22px;
 }
 
 .letter p{
     color:#444;
-    line-height:1.8;
-    font-size:15px;
+    line-height:1.9;
+    font-size:16px;
 }
 
-/* BUTTONS */
-.controls{
+/* TEXT UNDER ENVELOPE */
+.tap-text{
+    color:white;
     margin-top:20px;
+    font-weight:bold;
+    z-index:2;
+}
+
+/* MUSIC BUTTONS */
+.controls{
+    margin-top:15px;
+    z-index:2;
 }
 
 button{
-    padding:10px 20px;
+    padding:12px 22px;
     border:none;
-    border-radius:25px;
-    background:#ff4d6d;
+    border-radius:30px;
+    background:#ff2e63;
     color:white;
     cursor:pointer;
     margin:5px;
+    font-size:15px;
+    transition:.3s;
 }
 
 button:hover{
-    opacity:.9;
+    transform:scale(1.05);
 }
 
-.tap-text{
-    color:white;
-    margin-top:15px;
-    font-weight:bold;
+/* HEART LAYER */
+.hearts{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
 }
 </style>
 </head>
@@ -146,19 +168,30 @@ button:hover{
 
 <div class="envelope-container" onclick="openLetter()">
 
-    <div class="letter" id="letter">
-        <h2>pabili yelo</h2>
+    <div class="letter">
+        <h2>For You, Shiena Mae ❤️</h2>
         <p>
-          Hello, Shienaaa. Last message ko na 'to for real for real. I want to thank you for such a wonderful-bitter time. I think I met the happiest version of myself when we found ourselves way back to each other. I really wanna give you my gifts in person but you know that we ended talking to each other(June 14 ko 'to ginawa). Just so you know, I loved you within the deepness of my whole body. Maybe, I love you so great that I chose to distance myself(the devil in me rawrr). Kidding aside, I really love you to my fullest as I mentally can. Unfortunately, it's me vs you and I—and I can't go against myself. Pasensya na kung hindi ko na talaga maintindihan sarili ko ngayon. Mahal naman talaga kita nang sobra and I think dadalhin ko iyan kahit kanino. Mahal na mahal kita, itanong mo pa sa lahat ng kaibigan, pamilya, or mga kakilala ko. Sorry, nonsense lang 'yung irarason ko kung bakit gusto ko na i-end, so I expect na magagalit ka. Pero being for real, gusto ko na talaga tumigil not because of anything or what but me. I know I can't handle such things as physically loving you to the fullest(sinabi ko kanina mentally lang, panis connected). Ewan, maybe some things are hindering myself to resist the urge to love you freely. Also, some matters such as not being legal to your parents is a plus. I don't have that much to say but I wish you the happiest birthday. May your dreams come your way and let it be. I hope for your best and please be good to yourself. Don't let people be advantageous of you. I love you, love. Happiest 19th birthday!<3 
-‎
-‎(Dagdag ko lang, pasensya na kung nagparamdam pa. Nawa'y huwag na tayo magtagpo. Mahal na mahal kita)
+            Dear Shiena Mae,<br><br>
+
+            Happy Birthday 🎉<br><br>
+
+            This is your special letter hidden inside a big envelope made just for you.<br><br>
+
+            I hope today brings you happiness, laughter, and everything you’ve been wishing for.<br><br>
+
+            You are someone truly special, and I hope you always remember how important you are to the people around you.<br><br>
+
+            Enjoy your day, eat lots of cake 🎂, and smile always.<br><br>
+
+            With love,<br>
+            Your Name ❤️
         </p>
     </div>
 
     <div class="envelope"></div>
 </div>
 
-<div class="tap-text">Huwag Pindutin(Nakamamatay)</div>
+<div class="tap-text">💌 Tap the giant envelope to open</div>
 
 <div class="controls">
     <button onclick="playMusic()">▶ Play Music</button>
@@ -175,7 +208,7 @@ function openLetter(){
     .classList.toggle('open');
 }
 
-const music = document.getElementById('bgMusic');
+const music = document.getElementById("bgMusic");
 
 function playMusic(){
     music.play();
@@ -185,19 +218,20 @@ function pauseMusic(){
     music.pause();
 }
 
-// Floating Hearts
+/* FLOATING HEARTS */
 const hearts = document.getElementById("hearts");
 
 setInterval(()=>{
     const heart = document.createElement("span");
     heart.innerHTML = "❤";
     heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (Math.random()*20 + 15) + "px";
+    heart.style.fontSize = (Math.random()*25 + 15) + "px";
     heart.style.animationDuration = (Math.random()*5 + 5) + "s";
+
     hearts.appendChild(heart);
 
     setTimeout(()=> heart.remove(),10000);
-},300);
+},250);
 </script>
 
 </body>
