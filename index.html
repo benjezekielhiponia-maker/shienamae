@@ -15,21 +15,20 @@
 
 body{
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    background:linear-gradient(135deg,#ff758f,#ffb3c6,#ffd6e0);
     overflow:hidden;
+    background:linear-gradient(135deg,#ff758f,#ffb3c6,#ffd6e0);
 }
 
 /* TITLE */
 h1{
+    position:absolute;
+    top:20px;
+    width:100%;
+    text-align:center;
     color:white;
-    font-size:32px;
-    margin-bottom:20px;
+    font-size:30px;
+    z-index:5;
     text-shadow:0 5px 15px rgba(0,0,0,.2);
-    z-index:2;
 }
 
 /* HEARTS */
@@ -46,14 +45,18 @@ h1{
     100%{transform:translateY(-110vh);opacity:0;}
 }
 
-/* ENVELOPE CONTAINER */
+/* ENVELOPE CENTER */
 .envelope-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     cursor:pointer;
-    position:relative;
-    z-index:2;
+    z-index:3;
+    transition:1s;
 }
 
-/* 💌 HUGE ENVELOPE */
+/* BIG ENVELOPE */
 .envelope{
     width:520px;
     height:320px;
@@ -79,58 +82,52 @@ h1{
     z-index:3;
 }
 
-/* OPEN EFFECT */
+/* OPEN FLAP */
 .open .envelope:before{
     transform:rotateX(180deg);
 }
 
-/* 💌 MASSIVE LETTER */
+/* 💌 FULL SCREEN LETTER */
 .letter{
-    position:absolute;
-    top:30px;
+    position:fixed;
+    top:50%;
     left:50%;
-    transform:translateX(-50%);
-    width:480px;   /* VERY WIDE */
-    height:0;
+    transform:translate(-50%,-50%) scale(0);
+    width:100vw;
+    height:100vh;
     background:white;
-    border-radius:14px;
-    overflow:hidden;
+    padding:80px 120px;
+    overflow:auto;
     transition:1s;
-    padding:0 40px;
-    z-index:2;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    z-index:10;
+    box-shadow:0 0 50px rgba(0,0,0,.3);
 }
 
-/* OPEN LETTER */
+/* OPEN FULL SCREEN */
 .open .letter{
-    height:520px;
-    padding:40px;
+    transform:translate(-50%,-50%) scale(1);
 }
 
+/* LETTER CONTENT */
 .letter h2{
     color:#ff2e63;
-    margin-bottom:15px;
-    font-size:22px;
+    font-size:34px;
+    margin-bottom:20px;
 }
 
 .letter p{
+    font-size:20px;
+    line-height:2;
     color:#444;
-    line-height:1.9;
-    font-size:16px;
 }
 
-/* TEXT UNDER ENVELOPE */
-.tap-text{
-    color:white;
-    margin-top:20px;
-    font-weight:bold;
-    z-index:2;
-}
-
-/* MUSIC BUTTONS */
+/* BUTTONS */
 .controls{
-    margin-top:15px;
-    z-index:2;
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    z-index:5;
 }
 
 button{
@@ -141,15 +138,20 @@ button{
     color:white;
     cursor:pointer;
     margin:5px;
-    font-size:15px;
-    transition:.3s;
 }
 
-button:hover{
-    transform:scale(1.05);
+/* TAP TEXT */
+.tap-text{
+    position:absolute;
+    bottom:80px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-weight:bold;
+    z-index:5;
 }
 
-/* HEART LAYER */
+/* HEARTS LAYER */
 .hearts{
     position:absolute;
     width:100%;
@@ -167,31 +169,33 @@ button:hover{
 <h1>🎂 Happy Birthday Shiena Mae 🎂</h1>
 
 <div class="envelope-container" onclick="openLetter()">
-
-    <div class="letter">
-        <h2>For You, Shiena Mae ❤️</h2>
-        <p>
-            Dear Shiena Mae,<br><br>
-
-            Happy Birthday 🎉<br><br>
-
-            This is your special letter hidden inside a big envelope made just for you.<br><br>
-
-            I hope today brings you happiness, laughter, and everything you’ve been wishing for.<br><br>
-
-            You are someone truly special, and I hope you always remember how important you are to the people around you.<br><br>
-
-            Enjoy your day, eat lots of cake 🎂, and smile always.<br><br>
-
-            With love,<br>
-            Your Name ❤️
-        </p>
-    </div>
-
     <div class="envelope"></div>
 </div>
 
-<div class="tap-text">💌 Tap the giant envelope to open</div>
+<!-- 💌 FULL SCREEN LETTER -->
+<div class="letter">
+    <h2>For You, Shiena Mae ❤️</h2>
+    <p>
+        Dear Shiena Mae,<br><br>
+
+        Happy Birthday 🎉<br><br>
+
+        This letter now opens into your full laptop screen — just like a digital world made only for you.<br><br>
+
+        I hope your day is filled with happiness, laughter, and unforgettable memories.<br><br>
+
+        You deserve all the love, peace, and success in life.<br><br>
+
+        Keep smiling always, because your smile makes everything better.<br><br>
+
+        Enjoy your special day and never forget how important you are.<br><br>
+
+        With love,<br>
+        Your Name ❤️
+    </p>
+</div>
+
+<div class="tap-text">💌 Tap the envelope to open</div>
 
 <div class="controls">
     <button onclick="playMusic()">▶ Play Music</button>
@@ -204,8 +208,7 @@ button:hover{
 
 <script>
 function openLetter(){
-    document.querySelector('.envelope-container')
-    .classList.toggle('open');
+    document.body.classList.toggle('open');
 }
 
 const music = document.getElementById("bgMusic");
@@ -218,7 +221,7 @@ function pauseMusic(){
     music.pause();
 }
 
-/* FLOATING HEARTS */
+/* HEARTS */
 const hearts = document.getElementById("hearts");
 
 setInterval(()=>{
@@ -227,7 +230,6 @@ setInterval(()=>{
     heart.style.left = Math.random()*100 + "vw";
     heart.style.fontSize = (Math.random()*25 + 15) + "px";
     heart.style.animationDuration = (Math.random()*5 + 5) + "s";
-
     hearts.appendChild(heart);
 
     setTimeout(()=> heart.remove(),10000);
