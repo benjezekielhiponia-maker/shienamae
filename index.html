@@ -33,17 +33,10 @@ body{
 }
 
 @keyframes float{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
-    }
+    0%{transform:translateY(0) rotate(0deg);opacity:1;}
+    100%{transform:translateY(-110vh) rotate(360deg);opacity:0;}
 }
 
-/* Title */
 h1{
     color:white;
     margin-bottom:20px;
@@ -56,14 +49,16 @@ h1{
     position:relative;
 }
 
+/* ENVELOPE BASE */
 .envelope{
-    width:300px;
-    height:200px;
+    width:340px;
+    height:220px;
     background:#ff758f;
     position:relative;
     border-radius:0 0 10px 10px;
 }
 
+/* FLAP */
 .envelope:before{
     content:'';
     position:absolute;
@@ -71,9 +66,9 @@ h1{
     left:0;
     width:0;
     height:0;
-    border-left:150px solid transparent;
-    border-right:150px solid transparent;
-    border-top:100px solid #ff4d6d;
+    border-left:170px solid transparent;
+    border-right:170px solid transparent;
+    border-top:110px solid #ff4d6d;
     transform-origin:top;
     transition:.8s;
     z-index:3;
@@ -83,38 +78,40 @@ h1{
     transform:rotateX(180deg);
 }
 
-/* Letter */
+/* 💌 BIGGER LETTER */
 .letter{
     position:absolute;
     top:20px;
     left:50%;
     transform:translateX(-50%);
-    width:260px;
+    width:320px;         /* BIGGER WIDTH */
     height:0;
     background:white;
-    border-radius:10px;
+    border-radius:12px;
     overflow:hidden;
     transition:1s;
-    padding:0 20px;
+    padding:0 25px;
     z-index:2;
 }
 
+/* OPEN LETTER SIZE */
 .open .letter{
-    height:380px;
-    padding:20px;
+    height:520px;        /* BIGGER HEIGHT */
+    padding:25px;
 }
 
 .letter h2{
     color:#ff4d6d;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .letter p{
     color:#444;
-    line-height:1.6;
+    line-height:1.8;
+    font-size:15px;
 }
 
-/* Buttons */
+/* BUTTONS */
 .controls{
     margin-top:20px;
 }
@@ -127,7 +124,6 @@ button{
     color:white;
     cursor:pointer;
     margin:5px;
-    font-size:15px;
 }
 
 button:hover{
@@ -149,21 +145,13 @@ button:hover{
 <h1>🎂 Happy Birthday Shiena Mae 🎂</h1>
 
 <div class="envelope-container" onclick="openLetter()">
+
     <div class="letter" id="letter">
-        <h2>Bitch Asshole</h2>
-
+        <h2>pabili yelo</h2>
         <p>
-            Dear Shiena Mae,
-            <br><br>
-
-           ‎Hello, Shienaaa. Last message ko na 'to for real for real. I want to thank you for such a wonderful-bitter time. I think I met the happiest version of myself when we found ourselves way back to each other. I really wanna give you my gifts in person but you know that we ended talking to each other(June 14 ko 'to ginawa). Just so you know, I loved you within the deepness of my whole body. Maybe, I love you so great that I chose to distance myself(the devil in me rawrr). Kidding aside, I really love you to my fullest as I mentally can. Unfortunately, it's me vs you and I—and I can't go against myself. Pasensya na kung hindi ko na talaga maintindihan sarili ko ngayon. Mahal naman talaga kita nang sobra and I think dadalhin ko iyan kahit kanino. Mahal na mahal kita, itanong mo pa sa lahat ng kaibigan, pamilya, or mga kakilala ko. Sorry, nonsense lang 'yung irarason ko kung bakit gusto ko na i-end, so I expect na magagalit ka. Pero being for real, gusto ko na talaga tumigil not because of anything or what but me. I know I can't handle such things as physically loving you to the fullest(sinabi ko kanina mentally lang, panis connected). Ewan, maybe some things are hindering myself to resist the urge to love you freely. Also, some matters such as not being legal to your parents is a plus. I don't have that much to say but I wish you the happiest birthday. May your dreams come your way and let it be. I hope for your best and please be good to yourself. Don't let people be advantageous of you. I love you, love. Happiest 19th birthday!<3 
+          Hello, Shienaaa. Last message ko na 'to for real for real. I want to thank you for such a wonderful-bitter time. I think I met the happiest version of myself when we found ourselves way back to each other. I really wanna give you my gifts in person but you know that we ended talking to each other(June 14 ko 'to ginawa). Just so you know, I loved you within the deepness of my whole body. Maybe, I love you so great that I chose to distance myself(the devil in me rawrr). Kidding aside, I really love you to my fullest as I mentally can. Unfortunately, it's me vs you and I—and I can't go against myself. Pasensya na kung hindi ko na talaga maintindihan sarili ko ngayon. Mahal naman talaga kita nang sobra and I think dadalhin ko iyan kahit kanino. Mahal na mahal kita, itanong mo pa sa lahat ng kaibigan, pamilya, or mga kakilala ko. Sorry, nonsense lang 'yung irarason ko kung bakit gusto ko na i-end, so I expect na magagalit ka. Pero being for real, gusto ko na talaga tumigil not because of anything or what but me. I know I can't handle such things as physically loving you to the fullest(sinabi ko kanina mentally lang, panis connected). Ewan, maybe some things are hindering myself to resist the urge to love you freely. Also, some matters such as not being legal to your parents is a plus. I don't have that much to say but I wish you the happiest birthday. May your dreams come your way and let it be. I hope for your best and please be good to yourself. Don't let people be advantageous of you. I love you, love. Happiest 19th birthday!<3 
 ‎
 ‎(Dagdag ko lang, pasensya na kung nagparamdam pa. Nawa'y huwag na tayo magtagpo. Mahal na mahal kita)
-‎
-
-            <br><br>
-
-        
         </p>
     </div>
 
@@ -177,7 +165,6 @@ button:hover{
     <button onclick="pauseMusic()">⏸ Pause Music</button>
 </div>
 
-<!-- Replace music.mp3 with your song -->
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -206,15 +193,10 @@ setInterval(()=>{
     heart.innerHTML = "❤";
     heart.style.left = Math.random()*100 + "vw";
     heart.style.fontSize = (Math.random()*20 + 15) + "px";
-    heart.style.animationDuration =
-    (Math.random()*5 + 5) + "s";
-
+    heart.style.animationDuration = (Math.random()*5 + 5) + "s";
     hearts.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },10000);
-
+    setTimeout(()=> heart.remove(),10000);
 },300);
 </script>
 
